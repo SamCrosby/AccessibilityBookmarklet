@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
   $("img").attr("alt", function() {
       var alt = $(this).attr("alt");
       if(alt == "") {
@@ -23,18 +25,21 @@ $(document).ready(function() {
 
         // alert(alternativeList.length);
 
-        for (i = 0; i < alternativeList.length; i++ ) {
+        for (i = 0; i < alternativeList.length; i++) {
             if (alternativeList[i] === alter){
-            tally = tally + 1;
+              // alert(alternativeList[i]);
+              tally = tally + 1;
               // alert(tally);
                 if (tally >= 2) {
-                  alert("Image has alternative text duplicate");
-                  // $("<div>Image has alternative text duplicate.</div>").insertAfter("img").addClass("error");
-                  break
+                  // alert("Image has alternative text duplicate");
+                  $("<div>Image has alternative text duplicate.</div>").insertAfter("img").addClass("error");
+                  break;
                 }
-          } else {
-            // alert(alternativeList);
+              }
+           else {
+             // alert(alternativeList);
           }
+
         }
       });
       });
@@ -133,7 +138,35 @@ $(document).ready(function() {
      if(siblingTag !== "LABEL") {
        // alert("Form is missing a label")
        $("<div>Form is missing a label.</div>").insertAfter(this).addClass("error");
-
      }
+
    });
+
+   $("form", document.body).each(function() {
+     var input = $(this).children("input");
+     var labels = $(this).children("label");
+
+     if(labels.length > input.length) {
+       $("<div>Multiple form labels.</div>").insertAfter(this).addClass("error");
+     }
+
+   });
+
+
+   $("html, body, p, h1, h2, h3, h4, h5, h6, a").each( function() {
+     var size = $(this).css('font-size')
+     var remove = size.replace(/px/gi, "");
+
+     if(remove < 10) {
+       $("<div>Text too small.</div>").insertAfter(this).addClass("error");
+     } 
+
+     // alert(fontSizes);
+   });
+
+
+
+
+
+
 });
