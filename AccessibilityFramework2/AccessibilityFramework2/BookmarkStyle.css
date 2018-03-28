@@ -26,3 +26,13 @@ button:active {
 a{
   text-decoration: none;
 }
+
+.error {
+    width: 100px;
+    padding: 5px;
+    border: none;
+    margin: 0;
+    background-color:red;
+    color:white;
+    font-family:sans-serif;
+}
