@@ -1,30 +1,45 @@
 $(document).ready(function() {
 
 
-
+//This is the function
   $("img").attr("alt", function() {
       var alt = $(this).attr("alt");
+
+      //This is the if statement that checks if the alt tags are empty. If they are,
+      //then an error box appears with the message "Image missing alternative text."
       if(alt == "") {
 	      // alert("Image missing alternative text");
         $("<div>Image missing alternative text.</div>").insertAfter(this).addClass("error");
+        $(".error").css({
+          'background-color': 'red',
+          'color': 'white',
+          'width': '100px',
+          'padding': '5px',
+          'border': 'none',
+          'margin': '0',
+          'font-family':'sans-serif',
+        });
       }
+      });
 
-      var alternativeList = [];
+      $("img").attr("alt", function() {
+        var alter = $(this).attr("alt");
+        //This is the array that contains the list of all the alternative text.
+        var alternativeList = [];
 
-
+      //This function goes through each image, retrieves the alternative Text
+      // and then pushes it to the alternativeList array.
       $("img").each(function(){
-        var alts = $(this).attr("alt");
-        alternativeList.push(alts);
+        var alter = $(this).attr("alt");
+        alternativeList.push(alter);
         // alert(alternativeList);
     });
 
-
-    $("img").attr("alt", function() {
-        var alter = $(this).attr("alt");
         var tally = 0;
 
         // alert(alternativeList.length);
 
+        // if(alter !== undefined) {
         for (i = 0; i < alternativeList.length; i++) {
             if (alternativeList[i] === alter){
               // alert(alternativeList[i]);
@@ -32,16 +47,25 @@ $(document).ready(function() {
               // alert(tally);
                 if (tally >= 2) {
                   // alert("Image has alternative text duplicate");
-                  $("<div>Image has alternative text duplicate.</div>").insertAfter("img").addClass("error");
-                  break;
+                  $("<div>Image has alternative text duplicate.</div>").insertAfter(this).addClass("error");
+                    $(".error").css({
+                      'background-color': 'red',
+                      'color': 'white',
+                      'width': '100px',
+                      'padding': '5px',
+                      'border': 'none',
+                      'margin': '0',
+                      'font-family':'sans-serif',
+                    });
+                     break;
                 }
               }
-           else {
-             // alert(alternativeList);
-          }
-
+          //  else {
+          //    // alert(alternativeList);
+          // }
         }
-      });
+        // }
+
       });
 
 
@@ -73,12 +97,21 @@ $(document).ready(function() {
                       if (tally >= 2) {
                         // alert("There are duplicate id's.");
                         $("<div>There are duplicate id's.</div>").insertAfter(this).addClass("error");
-
+                        $(".error").css({
+                          'background-color': 'red',
+                          'color': 'white',
+                          'width': '100px',
+                          'padding': '5px',
+                          'border': 'none',
+                          'margin': '0',
+                          'font-family':'sans-serif',
+                        });
                         break
                       }
-                } else {
-                  // alert(idList2);
                 }
+                // else {
+                  // alert(idList2);
+                // }
               }
             }
 
@@ -91,7 +124,16 @@ $(document).ready(function() {
         var link = $(this).attr("href");
         if(link == "") {
           // alert("Link is empty.");
-          $("<div>Link is empty.</div>").insertAfter(this).addClass("error");
+          $("<div>Link is empty.</div>").prependTo(this).addClass("error");
+          $(".error").css({
+            'background-color': 'red',
+            'color': 'white',
+            'width': '100px',
+            'padding': '5px',
+            'border': 'none',
+            'margin': '0',
+            'font-family':'sans-serif',
+          });
         }
     });
 
@@ -101,6 +143,15 @@ $(document).ready(function() {
       if(lang == "") {
         // alert("Missing language");
         $("<div>Missing document language.</div>").appendTo("body").addClass("error");
+        $(".error").css({
+          'background-color': 'red',
+          'color': 'white',
+          'width': '100px',
+          'padding': '5px',
+          'border': 'none',
+          'margin': '0',
+          'font-family':'sans-serif',
+        });
       }
   });
 
@@ -110,15 +161,35 @@ $(document).ready(function() {
       if(button_text == "") {
         // alert("Missing button text");
         $("<div>Missing button text.</div>").insertAfter(this).addClass("error");
+        $(".error").css({
+          'background-color': 'red',
+          'color': 'white',
+          'width': '100px',
+          'padding': '5px',
+          'border': 'none',
+          'margin': '0',
+          'font-family':'sans-serif',
+        });
       }
   });
 
-
+  //This function retrieves all the text from the headers.
+  //If the header text is empty, an error box appears after the headers
+  //with the message "Missing heading text.".
   $(":header").html(function() {
       var header = $(this).html();
       if(header == "") {
         // alert("Missing heading text");
         $("<div>Missing heading text.</div>").insertAfter(this).addClass("error");
+        $(".error").css({
+          'background-color': 'red',
+          'color': 'white',
+          'width': '100px',
+          'padding': '5px',
+          'border': 'none',
+          'margin': '0',
+          'font-family':'sans-serif',
+        });
       }
   });
 
@@ -127,7 +198,16 @@ $(document).ready(function() {
      var parentTag = $( this ).parent().get( 0 ).tagName;
      if(parentTag !== "UL", parentTag !== "OL") {
        // alert("List is not contained within <ul> or <ol> parent element.")
-       $("<div>List is not contained within ul or ol parent elements.</div>").insertAfter(this).addClass("error");
+       $("<div>List is not contained within ul or ol parent elements.</div>").prependTo(this).addClass("error");
+       $(".error").css({
+         'background-color': 'red',
+         'color': 'white',
+         'width': '100px',
+         'padding': '5px',
+         'border': 'none',
+         'margin': '0',
+         'font-family':'sans-serif',
+       });
     }
    });
 
@@ -138,7 +218,16 @@ $(document).ready(function() {
      if(siblingTag !== "LABEL") {
        // alert("Form is missing a label")
        $("<div>Form is missing a label.</div>").insertAfter(this).addClass("error");
-     }
+       $(".error").css({
+         'background-color': 'red',
+         'color': 'white',
+         'width': '100px',
+         'padding': '5px',
+         'border': 'none',
+         'margin': '0',
+         'font-family':'sans-serif',
+       });
+   }
 
    });
 
@@ -148,6 +237,15 @@ $(document).ready(function() {
 
      if(labels.length > input.length) {
        $("<div>Multiple form labels.</div>").insertAfter(this).addClass("error");
+       $(".error").css({
+         'background-color': 'red',
+         'color': 'white',
+         'width': '100px',
+         'padding': '5px',
+         'border': 'none',
+         'margin': '0',
+         'font-family':'sans-serif',
+       });
      }
 
    });
@@ -159,14 +257,18 @@ $(document).ready(function() {
 
      if(remove < 10) {
        $("<div>Text too small.</div>").insertAfter(this).addClass("error");
-     } 
-
+       $(".error").css({
+         'background-color': 'red',
+         'color': 'white',
+         'width': '100px',
+         'padding': '5px',
+         'border': 'none',
+         'margin': '0',
+         'font-family':'sans-serif',
+       });
+     }
      // alert(fontSizes);
    });
-
-
-
-
 
 
 });
