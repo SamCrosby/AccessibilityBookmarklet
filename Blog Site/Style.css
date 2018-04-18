@@ -1,0 +1,312 @@
+
+/*
+This is the row class which is used to seperate the html into rows.
+*/
+.row {
+    width: 100%;
+    max-width: 62rem;
+    margin: 0 auto;
+}
+
+
+/*
+This is the styling for the header.
+*/
+ header {
+   background-color: #55344C;
+   height:100%;
+   margin-top:-8px;
+   color:#ffffff;
+   overflow:auto;
+  font-family:Georgia,serif;
+ }
+
+ /*
+ This is the styling for the body.
+ */
+ body {
+   background-color: #fffff0;
+   font-family: sans-serif;
+ }
+
+ /*
+ This moves the 'git' part of the title in a bit so that it is in the middle of 'girls in tech'.
+ */
+ h1 {
+   margin-left:45px;
+ }
+
+
+ /*
+ This is the styling for the blog boxes.
+ */
+ .blog {
+   background-color:#55344C;
+   color:#ffffff;
+   padding:20px;
+   height:250px;
+   width: 250px;
+   border-radius:25px;
+   margin-bottom:20px;
+   /* transition: width 0.5s, height 0.5s, font-size 0.5s; */
+   /* display: flex; */
+   /* align-items: center; */
+ }
+
+ /*
+ This adds a margin to the form.
+ */
+ .form {
+   margin:20px;
+ }
+
+ /*
+ This sets the blogs to green when they are hovered over.
+ */
+.blog:hover {
+  background-color:#315F36;
+  /* height:300px;
+  width:300px; */
+  /* margin-bottom:30px; */
+  /* font-size:20px; */
+}
+
+/*
+This sets the colour of the links as white.
+*/
+a {
+  color:#ffffff;
+}
+
+/*
+This removes the underline from the link
+*/
+a:link {
+  text-decoration: none;
+}
+
+
+dt {
+  padding-top:5px;
+}
+
+/*
+This is the styling for the name input box.
+*/
+input {
+  width: auto;
+  border-radius:4px;
+  padding:5px;
+}
+
+/*
+This is the styling for the name input box when it has been clicked on.
+*/
+input:focus {
+    border: 1px solid #55344C;
+}
+
+/*
+This is the styling for the comments section.
+*/
+.comments {
+  border-style:dotted;
+  border-width:3px;
+  max-width:800px;
+  /* padding:5px; */
+  margin: 0 auto;
+  margin-bottom:10px;
+  /* margin-top:10px; */
+  /* width:100%; */
+}
+
+
+/*
+This adds a margin to the left of the comments to move them in a bit, away from the border.
+*/
+dl {
+  margin-left:20px;
+}
+
+/*
+This is the styling for the about section in the footer.
+*/
+.about {
+  padding:5px;
+  padding-left:15px;
+  /* padding-left:15px; */
+  background-color:#315F36;
+  height:100%;
+  color:#ffffff;
+  /* margin-left:auto;
+  margin-right:auto; */
+}
+
+/*
+This is the styling for the copyright section in the footer.
+*/
+.copyright {
+  height:auto;
+  padding:5px;
+  padding-left:15px;
+  background-color:#55344C;
+  color:#ffffff;
+  margin:0 auto;
+}
+
+/*
+This is the styling for the comment input box.
+*/
+textarea {
+  resize: none;
+  border-radius:4px;
+}
+
+/*
+This sets the styling for the comment input box when it has been clicked on.
+*/
+textarea:focus {
+  border: 1px solid #555;
+}
+
+
+/*
+This is the styling for the button.
+*/
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 18px;
+  margin-left:45px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #55344C;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+}
+
+/*
+This sets the styling for the button when it is hovered over.
+*/
+.button:hover {
+  background-color: #3f2739
+}
+
+/*
+This sets the styling for the button when it is active.
+*/
+.button:active {
+  background-color: #2f1d2b;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/**
+Sets the parent div as flex, while passes this on to its children
+*/
+.parent {
+    display: flex;
+    align-items: center;
+}
+
+/*
+This sets flex for the diirect descendants of the parent class.
+*/
+.parent > div {
+        flex: 1;
+    }
+
+/*
+This is the styling for the grid-container class
+*/
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*
+This is the class for the individual cells
+*/
+.cell {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+
+/**
+ * Classes that implement the horizontal grid
+ */
+.grid-x {
+    display: flex;
+    flex-flow: row wrap;
+}
+.grid-x > .cell {
+    margin: 0 0.5rem;
+}
+
+/**
+ * Classes that implement the vertical grid
+ */
+.grid-y {
+    display:flex;
+    flex-flow: column nowrap;
+}
+.grid-y > .cell {
+    margin: 0.5rem 0;
+}
+
+/**
+ * Classes that implement the cell sizes
+ */
+.cell.small-auto {
+    flex: 1 0 auto;
+    width: auto;
+}
+.cell.small-shrink {
+    flex: 0 0 auto;
+    width: auto;
+}
+@media(max-width: 640px) {
+    .cell.small-hidden {
+        display: none;
+    }
+}
+.cell.small-1 {
+    width: calc(8.3333% - 1rem);
+}
+.cell.small-2 {
+    width: calc(16.6666% - 1rem);
+}
+.cell.small-3 {
+    width: calc(25% - 1rem);
+}
+.cell.small-4 {
+    width: calc(33.3333% - 1rem);
+}
+.cell.small-5 {
+    width: calc(41.6666% - 1rem);
+}
+.cell.small-6 {
+    width: calc(50% - 1rem);
+}
+.cell.small-7 {
+    width: calc(58.3333% - 1rem);
+}
+.cell.small-8 {
+    width: calc(66.6666% - 1rem);
+}
+.cell.small-9 {
+    width: calc(75% - 1rem);
+}
+.cell.small-10 {
+    width: calc(83.3333% - 1rem);
+}
+.cell.small-11 {
+    width: calc(91.6666% - 1rem);
+}
+.cell.small-12 {
+    width: calc(100% - 1rem);
+}
