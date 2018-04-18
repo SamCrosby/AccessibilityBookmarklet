@@ -1,5 +1,23 @@
-$(document).ready(function() {
 
+/**
+Some websites did not work with the framework because they did not have
+the jQuery. To fix this a script was created in each of the websites
+this framework is used on. It retrieves the head, creates the tag and
+ prepends the script to the head tag. 
+*/
+
+//This retrieve the head element by its tag name
+var head = document.getElementsByTagName('head')[0];
+//This creates the script tag
+var script = document.createElement('script');
+//This sets the script type as text/javascript
+script.type = 'text/javascript';
+//This sets the source of the script as the jQuery link from the Google apis page.
+script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js';
+//This sets the script as the first child of the head tag. This was to prevent any other scripts from running before it.
+head.prepend(script);
+
+$(document).ready(function() {
 
 //This is the function that checks for empty alt tags. It selects all of the alt attributes for the images.
   $("img").attr("alt", function() {
@@ -91,6 +109,12 @@ $(document).ready(function() {
         // }
 
       });
+
+
+
+
+
+
 
       //This is the function that checks for duplicate id's. It selects the id attributes for all of the elements.
       $("*").attr("id", function() {
